@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Hobbies and Crafts</title>
+    </head>
+    <body>
+        <main>
+         <h1>Registration form</h1>
+         <h2>Please fill out this form with the required information</h2>
+         <form>      
+            <fieldset>
+                <label>Name: <input type="text" name="name" placeholder="Enter your name" required/></label>
+                <label>Age: <input type="number" name="age" min="18" max="125" placeholder="Enter your age" required/></label>
+                <label>Email: <input type="email" name="email" placeholder="Enter your email" required/></label>
+                <label>Telephone number: <input type="tel" name="telephone number" placeholder="Enter your telephone number" required/></label>
+                <label>Password: <input type="tel" name="new password" placeholder="Enter your password" pattern="[a-z0-5]{8,}" required/></label>
+            </fieldset>
+            <fieldset>
+                <label>Your gender:</label>
+                <label><input type="radio" name="gender" required/> Male</label>
+                <label><input type="radio" name="gender" required/> Female</label>
+                <label><input type="checkbox" name="terms and conditions" value="terms and conditions" required/> I accept the <a href="terms.html">terms and conditions</a></label>
+            </fieldset>
+            <fieldset>
+                <label>Upload your profile picture (optional)<input type="file" name="picture"/></label>
+                <label>What is your opinion about our website?
+                    <select name="opinion" required>
+                        <option value="" selected disabled>(select one)</option>
+                        <option value="1">Marvellous</option>
+                        <option value="2">Wonderful</option>
+                        <option value="3">Excellent</option>
+                        <option value="4">Fantastic</option>
+                        <option value="5">Brilliant</option>
+                        <option value="6">Incredible</option>
+                        <option value="7">Magnificent</option>
+                        <option value="8">Amazing</option>
+                    </select>
+                </label>
+                <label>Tell something about yourself (optional)<textarea name="bio" rows="3" cols="30" placeholder="In my free time i like to grow carrots..." ></textarea></label>
+            </fieldset>
+            <input type="submit" value="Submit" name="submit" id="submit" />
+         </form>
+        </main>
+
+        <footer>
+            <strong>
+                <p style="text-align: center;">&copy;Hobbies website. All rights reserved</p>
+            </strong>
+        </footer>
+    </body>
+</html>
