@@ -1,0 +1,28 @@
+table {
+    font-size: 0.8rem;
+    border: 2px solid grey;
+    border-collapse: collapse;
+    table-layout: fixed;
+    display: table;
+}
+thead, tbody {
+    text-align: center;
+    vertical-align: middle;
+}
+th,td {
+    border: 1px solid grey;
+    padding: 10px 20px;
+}
+caption {
+    padding: 10px;
+}
+th {
+  background-color: rgb(235, 235, 235);  
+  font-weight: bold;
+}
+tr:nth-child(odd) td {
+    background-color: rgb(245, 245, 245);
+}
+tr:nth-child(even) td {
+    background-color: rgb(250, 250, 250);
+}
