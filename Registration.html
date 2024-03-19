@@ -3,27 +3,27 @@
     <head>
         <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="Stylesheet" href="CSS/Styles.css">
         <title>Hobbies and Crafts</title>
     </head>
     <body>
         <main>
          <h1>Registration form</h1>
          <h2>Please fill out this form with the required information</h2>
-         <form>      
-            <fieldset>
+         <form class="RegForm">      
+            <fieldset class="FieldSet">
                 <label>Name: <input type="text" name="name" placeholder="Enter your name" required/></label>
                 <label>Age: <input type="number" name="age" min="18" max="125" placeholder="Enter your age" required/></label>
                 <label>Email: <input type="email" name="email" placeholder="Enter your email" required/></label>
                 <label>Telephone number: <input type="tel" name="telephone number" placeholder="Enter your telephone number" required/></label>
                 <label>Password: <input type="tel" name="new password" placeholder="Enter your password" pattern="[a-z0-5]{8,}" required/></label>
             </fieldset>
-            <fieldset>
+            <fieldset class="FieldSet">
                 <label>Your gender:</label>
-                <label><input type="radio" name="gender" required/> Male</label>
-                <label><input type="radio" name="gender" required/> Female</label>
-                <label><input type="checkbox" name="terms and conditions" value="terms and conditions" required/> I accept the <a href="terms.html">terms and conditions</a></label>
+                <label><input type="radio" class="RadioB" name="gender" required/> Male</label>
+                <label><input type="radio" class="RadioB" name="gender" required/> Female</label>
             </fieldset>
-            <fieldset>
+            <fieldset class="FieldSet">
                 <label>Upload your profile picture (optional)<input type="file" name="picture"/></label>
                 <label>What is your opinion about our website?
                     <select name="opinion" required>

@@ -1,0 +1,103 @@
+body {
+    background-color: #11283d;
+    font-family: sans-serif;
+    color: #e0e0e0;
+}
+h1, h2,h3 {
+    font-family:  sans-serif;
+    text-align: center;
+    margin: 0.5em;
+}
+header,main{
+    margin: auto;
+    width: 80vw;
+    background-color: #16324c;
+    padding: 0px;
+    border-radius: 3px;
+}
+li::marker{
+    content: "";
+}
+li{
+    display: inline-block;
+}
+p{
+    padding-inline: 20px;
+}
+footer{
+    margin: auto;
+    text-align: center;
+}
+a:link {
+    color: #e7e7e7;
+}
+a:visited{
+    color: #bcbcbc;
+}
+a:hover{
+    color:beige;
+}
+a:active{
+    color:burlywood;
+}
+.RadioB{
+    margin: 0 0 0 0 ;
+    width: unset;
+    vertical-align: middle;
+}
+.RegForm{
+    background-color: whitesmoke;
+    color: black;
+    width: 60vw;
+    max-width: 900px;
+    min-width: 260px;
+    margin: auto;
+    padding: 20px;
+    border-radius: 3px;
+    margin-bottom: 40px;
+}
+.FieldSet{
+    margin: 0 0 20px 0 ;
+    border: none;
+}
+iframe{
+    margin: auto;
+    width: 80%;
+    display:block;
+}
+img{
+    margin: auto;
+    display:block;
+}
+::placeholder{
+    color: whitesmoke;
+}
+input, select, textarea {
+    width: 95%;
+    min-height: 2em;
+    border-radius: 3px;
+    margin: 0.5em 0 0 0;
+    padding: 0.3rem 0.7rem;
+}
+input, textarea {
+    background-color: #708090;
+    border: 1px solid #708090;
+    color:white
+}
+input[type="submit"] {
+    cursor: pointer;
+    width: 60%;
+    display: block;
+    margin: auto;
+    color:whitesmoke;
+    background-color: #708090;
+    border-radius: 3px;
+}
+textarea {
+    resize: vertical;
+}
+label {
+    margin: 0.5rem 0 ;
+    display: block;
+    font-size: 1.125rem;
+}
