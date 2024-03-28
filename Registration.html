@@ -4,6 +4,7 @@
         <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link rel="Stylesheet" href="CSS/Styles.css">
+        <script src="JavaScript/Scripts.js"></script>
         <title>Hobbies and Crafts</title>
     </head>
     <body>
@@ -22,6 +23,7 @@
                 <label>Your gender:</label>
                 <label><input type="radio" class="RadioB" name="gender" required/> Male</label>
                 <label><input type="radio" class="RadioB" name="gender" required/> Female</label>
+                <label><input type="checkbox" id="SpecialCheckbox" name="terms and conditions" value="terms and conditions" class="RadioB" /> I accept this checkbox</label>
             </fieldset>
             <fieldset class="FieldSet">
                 <label>Upload your profile picture (optional)<input type="file" name="picture"/></label>
@@ -40,7 +42,7 @@
                 </label>
                 <label>Tell something about yourself (optional)<textarea name="bio" rows="3" cols="30" placeholder="In my free time i like to grow carrots..." ></textarea></label>
             </fieldset>
-            <input type="submit" value="Submit" name="submit" id="submit" />
+            <input type="submit" value="Submit" name="submit" id="submit" onclick="ShowAlertIfCheckboxChecked()" />
          </form>
         </main>
 
