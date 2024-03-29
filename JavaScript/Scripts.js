@@ -1,8 +1,13 @@
 function ShowAlertIfCheckboxChecked(){
     checkbox =document.getElementById("SpecialCheckbox");
+    checkboxText =document.getElementById("CheckboxLabel");
     if(checkbox.checked)
     {
         window.alert("The checkbox was checked!!!");
+    }
+    else{
+        window.alert("The checkbox wasn't checked, you should check it");
+        checkboxText.style.fontSize = "54px";
     }
 }
 
