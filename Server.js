@@ -1,9 +1,19 @@
 const http = require("http");
+const fs = require("fs");
 const port = 5500;
 
 const server = http.createServer(function(req,res){
-    res.write("Go kill yourself! NOW!!!");
-    res.end();
+    res.writeHead(200, {'Content-Type' : 'text/html'})
+    fs.readFile("Index.html", function(error,data){
+        if(error){
+            res.writeHead(404);
+            res.write("Error: File not found");
+        }
+        else {
+            res.write(data);
+        }
+        res.end();
+    });
 });
 
 server.listen(port,function(error){

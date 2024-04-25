@@ -3,11 +3,11 @@ function ShowAlertIfCheckboxChecked(){
     checkboxText =document.getElementById("CheckboxLabel");
     if(checkbox.checked)
     {
-        window.alert("The checkbox was checked!!!");
+        window.alert("The checkbox was approved! You have obtained 10 social credits!!!");
     }
     else{
-        window.alert("The checkbox wasn't checked, you should check it");
-        checkboxText.style.fontSize = "54px";
+        window.alert("The checkbox wasn't approved, 500 social credits were written off from your score.");
+        //checkboxText.style.fontSize = "54px";
     }
 }
 
