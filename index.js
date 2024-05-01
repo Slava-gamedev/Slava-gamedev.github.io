@@ -1,8 +1,10 @@
 const express = require("express");
 const mongoose = require('mongoose');
+const cors = require('cors'); // Import the cors module
 const User = require("./Models/User.model.js");
 const app = express();
 
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 
@@ -29,12 +31,12 @@ app.get('/api/users/:id', async(req,res)=>{
     }
 })
 //add
-app.post('/api/users', async (req,res) =>{
+app.post('/api/AddUser', async (req,res) =>{
     try {
         const user = await User.create(req.body);
         res.status(200).json(user);
     } catch (error) {
-        res.status(500).json({messsage : error.messsage});
+        res.status(500).json({messsage : error.messsage, gayNigga});
     }
 });
 

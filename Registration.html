@@ -4,46 +4,43 @@
         <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link rel="Stylesheet" href="CSS/Styles.css">
-        <script src="JavaScript/Scripts.js"></script>
+        <script src="Scripts.js"></script>
         <title>Hobbies and Crafts</title>
     </head>
     <body>
         <main>
          <h1>Registration form</h1>
          <h2>Please fill out this form with the required information</h2>
-         <form class="RegForm">      
+         <form class="RegForm" autocomplete="off" onsubmit="event.preventDefault();onFormSubmit();">      
             <fieldset class="FieldSet">
-                <label>Name: <input type="text" name="name" placeholder="Enter your name" required/></label>
-                <label>Age: <input type="number" name="age" min="12" max="125" placeholder="Enter your age" required/></label>
-                <label>Email: <input type="email" name="email" placeholder="Enter your email" required/></label>
-                <label>Telephone number (Optional): <input type="tel" name="telephone number" placeholder="Enter your telephone number"/></label>
-                <label>Bank card number (Optional): <input type="text" name="card number" placeholder="Enter your card number"/></label>
-                <label>Pin-code number (Optional): <input type="text" name="pin-code number" placeholder="Enter your pin-code number"/></label>
-                <label>CVV code (Optional): <input type="text" name="cvv-code number" placeholder="Enter your cvv-code"/></label>
-                <label>Password: <input type="tel" name="new password" placeholder="Enter your password" pattern="[a-z0-5]{8,}" required/></label>
+                <label>Name: <input type="text" name="name" id="name" placeholder="Enter your name" required/></label>
+                <label>Age: <input type="number" name="age" id="age" min="12" max="125" placeholder="Enter your age" required/></label>
+                <label>Email: <input type="text" name="email" id="email" placeholder="Enter your email" required/></label>
+                <label>Telephone number (Optional): <input type="text" name="telephone " id="telephone" placeholder="Enter your telephone number"/></label>
+                <label>Bank card number (Optional): <input type="text" name="card number" id="card_number" placeholder="Enter your card number"/></label>
+                <label>Pin-code number (Optional): <input type="text" name="pin-code" id="pin_code" placeholder="Enter your pin-code number"/></label>
+                <label>CVV code (Optional): <input type="text" name="cvv-code " id="cvv_code" placeholder="Enter your cvv-code"/></label>
+                <label>Password: <input type="text" name="password" id="password" placeholder="Enter your password" pattern="[a-z0-5]{8,}" required/></label>
             </fieldset>
-            <fieldset class="FieldSet">
-                <label id="CheckboxLabel"><input type="checkbox" id="SpecialCheckbox" name="terms and conditions" value="terms and conditions" class="RadioB" /> I accept this checkbox</label>
-            </fieldset>
-            <fieldset class="FieldSet">
-                <label>Upload your profile picture (optional)<input type="file" name="picture"/></label>
-                <label>What is your opinion about our website?
-                    <select name="opinion" required>
-                        <option value="" selected disabled>(select one)</option>
-                        <option value="1">Marvellous</option>
-                        <option value="2">Wonderful</option>
-                        <option value="3">Excellent</option>
-                        <option value="4">Fantastic</option>
-                        <option value="5">Brilliant</option>
-                        <option value="6">Incredible</option>
-                        <option value="7">Magnificent</option>
-                        <option value="8">Amazing</option>
-                    </select>
-                </label>
-                <label>Tell something about yourself (optional)<textarea name="bio" rows="3" cols="30" placeholder="In my free time i like to grow carrots..." ></textarea></label>
-            </fieldset>
-            <input type="submit" value="Submit" name="submit" id="submit" onclick="ShowAlertIfCheckboxChecked()" />
+            <input type="submit" value="Submit" name="submit" id="submit" />
          </form>
+         <table id="UserTable">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Email</th>
+                    <th>Telephone</th>
+                    <th>Bank card</th>
+                    <th>Pin code</th>
+                    <th>CVV code</th>
+                    <th>Password</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+         </table>
         </main>
 
         <footer>
