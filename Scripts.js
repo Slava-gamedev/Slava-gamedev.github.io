@@ -94,8 +94,8 @@ function OnDelete(td){
     document.getElementById("UserTable").deleteRow(row.rowIndex);
     resetForm();
 }
-function RenewTable(){
-    allUsers = GetAllUsersFromDatabase();
+async function RenewTable(){
+    allUsers = await GetAllUsersFromDatabase();
     if (UserIds && UserIds.length > 0){
         UserIds.forEach(function(id) {
             allUsers = allUsers.filter(user => user._id !== id);
@@ -106,27 +106,27 @@ function RenewTable(){
         UserIds.push(user._id);
     });
 }
-function GetAllUsersFromDatabase(){
-    fetch('http://localhost:3000/api/GetUsers', {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-    })
-    .then(async response => {
+async function GetAllUsersFromDatabase(){
+    try {
+        const response = await fetch('http://localhost:3000/api/GetUsers', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
+
         if (response.ok) {
-            users = await response.json();
+            const users = await response.json();
             console.log('Users retrieved successfully!');
             return users;
         } else {
             console.error('Failed to get users:', response.statusText);
             return null;
         }
-    })
-    .catch(error => {
+    } catch (error) {
         console.error('Error getting users:', error);
         return null;
-    });
+    }
 }
 
 function AddUserToDatabase(data){
