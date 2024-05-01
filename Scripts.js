@@ -101,10 +101,12 @@ async function RenewTable(){
             allUsers = allUsers.filter(user => user._id !== id);
         });
     }
-    allUsers.forEach(function(user){
-        insertNewUser(user);
-        UserIds.push(user._id);
-    });
+    if (allUsers && allUsers.length > 0){
+        allUsers.forEach(function(user){
+            insertNewUser(user);
+            UserIds.push(user._id);
+        });
+    }
 }
 async function GetAllUsersFromDatabase(){
     try {
