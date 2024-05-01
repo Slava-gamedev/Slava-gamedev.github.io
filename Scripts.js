@@ -105,4 +105,5 @@ function UpdateRecord(data){
 function OnDelete(td){
     row = td.parentElement.parentElement;
     document.getElementById("UserTable").deleteRow(row.rowIndex);
+    resetForm();
 }
