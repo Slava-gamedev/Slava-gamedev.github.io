@@ -182,7 +182,7 @@ function DeleteUserFromDatabase(IdToRemove){
     })
     .then(response => {
         if (response.ok) {
-            userIds = userIds.filter(id => id !== IdToRemove);
+            UserIds = UserIds.filter(id => id !== IdToRemove);
             console.log('User deleted successfully!');
         } else {
             console.error('Failed to delete user:', response.statusText);
