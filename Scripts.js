@@ -3,7 +3,7 @@ function onFormSubmit(){
     console.log("the submit function runs!!!");
     var formData = readFormData();
     //insertNewUser(formData);
-    fetch('/api/AddUser', {
+    fetch('http://localhost:3000/api/AddUser', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -11,7 +11,7 @@ function onFormSubmit(){
         body: JSON.stringify(formData)
     })
     .then(response => {
-        if (response.ok) {
+        if (response.status(200)) {
             console.log('User added successfully!');
             resetForm();
         } else {
