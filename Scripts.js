@@ -64,7 +64,8 @@ function readFormData(){
     cell8 = newRow.insertCell(7);
     cell8.innerHTML = data.password;
     cell9 = newRow.insertCell(8);
-    cell9.innerHTML = `<a onClick="OnEdit(this)">Edit</a><a onClick="OnDelete(this)">Delete</a>`;
+    cell9.innerHTML = `<a onClick="OnEdit(this)">Edit</a>
+                       <a onClick="OnDelete(this)">Delete</a>`;
 }
 
 function resetForm(){
@@ -79,8 +80,9 @@ function resetForm(){
     selectedRow = null;
 }
 
-function onEdit(td){
+function OnEdit(td){
     selectedRow = td.parentElement.parentElement;
+    console.log("inner html" +selectedRow.cells[0].innerHTML);
     document.getElementById("name").value = selectedRow.cells[0].innerHTML;
     document.getElementById("age").value = selectedRow.cells[1].innerHTML;
     document.getElementById("email").value = selectedRow.cells[2].innerHTML;
