@@ -11,7 +11,7 @@ function onFormSubmit(){
         body: JSON.stringify(formData)
     })
     .then(response => {
-        if (response.status(200)) {
+        if (response.ok) {
             console.log('User added successfully!');
             resetForm();
         } else {
