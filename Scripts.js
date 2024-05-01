@@ -96,9 +96,11 @@ function OnDelete(td){
 }
 function RenewTable(){
     allUsers = GetAllUsersFromDatabase();
-    UserIds.forEach(function(id) {
-        allUsers = allUsers.filter(user => user._id !== id);
-    });
+    if (UserIds && UserIds.length > 0){
+        UserIds.forEach(function(id) {
+            allUsers = allUsers.filter(user => user._id !== id);
+        });
+    }
     allUsers.forEach(function(user){
         insertNewUser(user);
         UserIds.push(user._id);
