@@ -96,7 +96,7 @@ function OnDelete(td){
 }
 function RenewTable(){
     allUsers = GetAllUsersFromDatabase();
-    userIds.forEach(function(id) {
+    UserIds.forEach(function(id) {
         allUsers = allUsers.filter(user => user._id !== id);
     });
     allUsers.forEach(function(user){
