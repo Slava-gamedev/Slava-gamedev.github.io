@@ -1,6 +1,6 @@
 const express = require("express");
 const mongoose = require('mongoose');
-const cors = require('cors'); // Import the cors module
+const cors = require('cors');
 const User = require("./Models/User.model.js");
 const app = express();
 
@@ -56,7 +56,7 @@ app.put('/api/users/:id', async (req,res) =>{
 });
 
 //delete
-app.delete('/api/users/:id', async (req,res) => {
+app.delete('/api/Delete/:id', async (req,res) => {
     try {
         const {id} = req.params;
         const user = await User.findByIdAndDelete(id);

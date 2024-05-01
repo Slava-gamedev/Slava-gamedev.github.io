@@ -1,10 +1,11 @@
 var selectedRow=null;
+var UserIds=[];
 
 function onFormSubmit(){
     var formData = readFormData();
     if(selectedRow == null){
         insertNewUser(formData);
-        AddUserToDatabase(formData);
+        DeleteUserFromDatabase(formData);
     }
     else{
         UpdateRecord(formData);
@@ -12,7 +13,7 @@ function onFormSubmit(){
     resetForm();
 }
 
-function AddUserToDatabase(data){
+function DeleteUserFromDatabase(data){
     fetch('http://localhost:3000/api/AddUser', {
         method: 'POST',
         headers: {
@@ -20,8 +21,11 @@ function AddUserToDatabase(data){
         },
         body: JSON.stringify(data)
     })
-    .then(response => {
+    .then(async response => {
         if (response.ok) {
+            userData = await response.json();
+            userId = userData._id;
+            UserIds.push(userId);
             console.log('User added successfully!');
         } else {
             console.error('Failed to add user:', response.statusText);
@@ -106,6 +110,24 @@ function UpdateRecord(data){
 
 function OnDelete(td){
     row = td.parentElement.parentElement;
+    console.log("index or a row " + row.rowIndex);
     document.getElementById("UserTable").deleteRow(row.rowIndex);
     resetForm();
+}
+
+function DeleteUserFromDatabase(IdToRemove){
+    fetch('http://localhost:3000/api/Delete/' + IdToRemove, {
+        method: 'DELETE',
+    })
+    .then(async response => {
+        if (response.ok) {
+            userIds = userIds.filter(id => id !== IdToRemove);
+            console.log('User added successfully!');
+        } else {
+            console.error('Failed to add user:', response.statusText);
+        }
+    })
+    .catch(error => {
+        console.error('Error adding user:', error);
+    });
 }
