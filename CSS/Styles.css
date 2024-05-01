@@ -90,7 +90,18 @@ input, textarea {
     border: 1px solid #708090;
     color:white
 }
-input[type="submit"] {
+.renew{
+    cursor: pointer;
+    width: 40%;
+    display: block;
+    color:whitesmoke;
+    background-color: #708090;
+    border: 1px solid #708090;
+    border-radius: 3px;
+    margin: auto;
+    margin-bottom: 1em;
+}
+input[type="submit"]  {
     cursor: pointer;
     width: 60%;
     display: block;

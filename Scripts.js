@@ -5,35 +5,13 @@ function onFormSubmit(){
     var formData = readFormData();
     if(selectedRow == null){
         insertNewUser(formData);
-        DeleteUserFromDatabase(formData);
+        AddUserToDatabase(formData);
     }
     else{
-        UpdateRecord(formData);
+        index = selectedRow.rowIndex - 1;
+        UpdateRecord(formData,UserIds[index]);
     }
     resetForm();
-}
-
-function DeleteUserFromDatabase(data){
-    fetch('http://localhost:3000/api/AddUser', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data)
-    })
-    .then(async response => {
-        if (response.ok) {
-            userData = await response.json();
-            userId = userData._id;
-            UserIds.push(userId);
-            console.log('User added successfully!');
-        } else {
-            console.error('Failed to add user:', response.statusText);
-        }
-    })
-    .catch(error => {
-        console.error('Error adding user:', error);
-    });
 }
 
 function readFormData(){
@@ -97,7 +75,7 @@ function OnEdit(td){
     document.getElementById("password").value = selectedRow.cells[7].innerHTML;
 }
 
-function UpdateRecord(data){
+function UpdateRecord(data,id){
     selectedRow.cells[0].innerHTML = data.name;
     selectedRow.cells[1].innerHTML = data.age;
     selectedRow.cells[2].innerHTML = data.email;
@@ -106,22 +84,62 @@ function UpdateRecord(data){
     selectedRow.cells[5].innerHTML = data.pinCode;
     selectedRow.cells[6].innerHTML = data.cvvCode;
     selectedRow.cells[7].innerHTML = data.password;
+    UpdateUserInDatabase(data,id);
 }
 
 function OnDelete(td){
     row = td.parentElement.parentElement;
-    console.log("index or a row " + row.rowIndex);
+    index = row.rowIndex - 1;
+    DeleteUserFromDatabase(UserIds[index]);
     document.getElementById("UserTable").deleteRow(row.rowIndex);
     resetForm();
 }
-
-function DeleteUserFromDatabase(IdToRemove){
-    fetch('http://localhost:3000/api/Delete/' + IdToRemove, {
-        method: 'DELETE',
+function RenewTable(){
+    allUsers = GetAllUsersFromDatabase();
+    userIds.forEach(function(id) {
+        allUsers = allUsers.filter(user => user._id !== id);
+    });
+    allUsers.forEach(function(user){
+        insertNewUser(user);
+        UserIds.push(user._id);
+    });
+}
+function GetAllUsersFromDatabase(){
+    fetch('http://localhost:3000/api/GetUsers', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+        },
     })
     .then(async response => {
         if (response.ok) {
-            userIds = userIds.filter(id => id !== IdToRemove);
+            users = await response.json();
+            console.log('Users retrieved successfully!');
+            return users;
+        } else {
+            console.error('Failed to get users:', response.statusText);
+            return null;
+        }
+    })
+    .catch(error => {
+        console.error('Error getting users:', error);
+        return null;
+    });
+}
+
+function AddUserToDatabase(data){
+    fetch('http://localhost:3000/api/AddUser', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data)
+    })
+    .then(async response => {
+        if (response.ok) {
+            userData = await response.json();
+            userId = userData._id;
+            UserIds.push(userId);
             console.log('User added successfully!');
         } else {
             console.error('Failed to add user:', response.statusText);
@@ -129,5 +147,44 @@ function DeleteUserFromDatabase(IdToRemove){
     })
     .catch(error => {
         console.error('Error adding user:', error);
+    });
+}
+
+
+
+function UpdateUserInDatabase(data,IdToUpdate){
+    fetch('http://localhost:3000/api/Update/' + IdToUpdate, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => {
+        if (response.ok) {
+            console.log('User updated successfully!');
+        } else {
+            console.error('Failed to update user:', response.statusText);
+        }
+    })
+    .catch(error => {
+        console.error('Error updating user:', error);
+    });
+}
+
+function DeleteUserFromDatabase(IdToRemove){
+    fetch('http://localhost:3000/api/Delete/' + IdToRemove, {
+        method: 'DELETE',
+    })
+    .then(response => {
+        if (response.ok) {
+            userIds = userIds.filter(id => id !== IdToRemove);
+            console.log('User deleted successfully!');
+        } else {
+            console.error('Failed to delete user:', response.statusText);
+        }
+    })
+    .catch(error => {
+        console.error('Error deleting user:', error);
     });
 }

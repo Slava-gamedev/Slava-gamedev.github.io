@@ -12,7 +12,7 @@ app.get("/", (req,res) => {
     res.send("this is Node ");
 });
 //get all
-app.get('/api/users', async(req,res)=>{
+app.get('/api/GetUsers', async(req,res)=>{
     try {
         const users = await User.find({});
         res.status(200).json(users);
@@ -41,7 +41,7 @@ app.post('/api/AddUser', async (req,res) =>{
 });
 
 //update
-app.put('/api/users/:id', async (req,res) =>{
+app.put('/api/Update/:id', async (req,res) =>{
     try {
         const { id } = req.params;
         const user = await User.findByIdAndUpdate(id, req.body);
