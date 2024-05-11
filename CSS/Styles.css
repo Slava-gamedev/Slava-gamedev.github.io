@@ -1,8 +1,9 @@
 
 body {
-    background-color: #11283d;
+    background-color: #222034;
     font-family: sans-serif;
     color: #e0e0e0;
+    overflow-x: hidden;
 }
 h1, h2,h3 {
     font-family:  sans-serif;
@@ -127,4 +128,48 @@ td,th{
     border: 1px solid #dddddd;
     text-align: left;
     padding: 8px;
+}
+.navigationBar{
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px,100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+.navigation a{
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.paralax{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+#paralaxText{
+    font-size: 5em;
+    position: absolute;
+}
+.paralax img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    pointer-events: none;
+}
+.content{
+    position: relative;
+    background-color: #222034;
+    padding:  100px;
+}
+.content h2{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 2em;
 }
