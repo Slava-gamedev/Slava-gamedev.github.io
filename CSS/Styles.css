@@ -142,6 +142,7 @@ td,th{
 }
 .navigation a{
     text-decoration: none;
+    margin-right: 20px;
     font-weight: 600;
 }
 
