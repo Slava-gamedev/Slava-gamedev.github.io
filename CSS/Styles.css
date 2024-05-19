@@ -16,6 +16,7 @@ header,main{
     background-color: #16324c;
     padding: 0px;
     border-radius: 3px;
+    position: relative;
 }
 li::marker{
     content: "";
@@ -75,6 +76,7 @@ iframe{
 img{
     margin: auto;
     display:block;
+    max-width: 80%;
 }
 ::placeholder{
     color: whitesmoke;
@@ -173,4 +175,9 @@ td,th{
     margin-top: 20px;
     margin-bottom: 20px;
     font-size: 2em;
+}
+@media screen and (max-width:770px) {
+   .HideOnSmallScreen{
+    display: none;
+   }
 }
