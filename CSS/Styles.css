@@ -76,7 +76,9 @@ iframe{
 img{
     margin: auto;
     display:block;
-    width: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    height: auto;
 
 }
 ::placeholder{
@@ -137,6 +139,7 @@ td,th{
     top: 0;
     left: 0;
     width: 100%;
+    height: 50px;
     padding: 30px,100px;
     display: flex;
     justify-content: space-between;
@@ -145,7 +148,9 @@ td,th{
 }
 .navigation a{
     text-decoration: none;
-    margin-right: 20px;
+    display: inline-block;
+    margin-right: 10px;
+    margin-left: 10px;
     font-weight: 600;
 }
 
@@ -177,19 +182,46 @@ td,th{
     margin-bottom: 20px;
     font-size: 2em;
 }
+
+.navigation {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    margin-right: 25px;
+    display: block;
+}
+.navigation.isView {
+    display: block;
+}
+.burgerButton { 
+    color: white;
+    position: absolute;
+    right: 0;
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: none;
+}
+
 @media screen and (max-width:768px) {
+
+    .navigationBar h1{
+        display: none;
+    }
    .HideOnSmallScreen{
     display: none;
    }
-
-   img{
-    width: 100%;
-    height: 200px;
-    max-height: 800px;
+   .navigation{
+    display:  none;
    }
-   
+
    iframe{
     max-width: 500px;
     max-height: 400px;
+   }
+   .burgerButton{
+    display: block;
    }
 }

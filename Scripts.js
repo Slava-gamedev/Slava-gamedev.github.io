@@ -1,6 +1,12 @@
 var selectedRow=null;
 var UserIds=[];
 
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelector('.burgerButton').addEventListener('click', function() {
+        document.querySelector('.navigation').classList.toggle('isView');
+    });
+});
+
 function onFormSubmit(){
     var formData = readFormData();
     if(selectedRow == null){
